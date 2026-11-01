@@ -30,7 +30,7 @@ filters:
 ### Summer School 2027
 ##### 16-26 August 2027, Visby, Gotland, Sweden
 
-The R programming language is a powerful tool for data transformation, statistical analysis, and creating publication-ready visualizations. This workshop goes beyond the basics, giving participants a comprehensive understanding of the R ecosystem. We cover best coding practices, code profiling, data wrangling, generating reports from notebooks, and developing web applications using R.
+The R programming language is a powerful tool for data transformation, statistical analysis, and creating publication-ready visualizations. This workshop goes beyond the basics, giving participants a comprehensive understanding of the R ecosystem. We cover best coding practices, code profiling, data wrangling, generating reports from notebooks, developing web applications using R and more.
 
 ::: {.hidden}
 ::: {.home-buttons}
