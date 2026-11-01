@@ -1,0 +1,218 @@
+/* home page styles */
+
+.navbar {
+  background-color: transparent !important;
+}
+
+.nav-footer {
+  background-color: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* hero and home box geometry
+   The hero is pinned to the top of the page, behind the announcement and the navbar, with a fixed height. Quarto's header padding is removed on this page, so the page flow also starts
+   at the top and the box is simply pushed down to overlap the bottom of the hero. The overlap scales with the window width but is clamped to 10-30% of the hero height, so the box always sits on the hero whatever the window size and the header height. Everything after the box flows below it as usual. */
+
+:root {
+  --hero-height: clamp(280px, 50vh, 650px); /* from the top of the page to the bottom of the hero, half the window so the page fits one screen */
+  --hero-overlap: clamp(calc(var(--hero-height) * 0.1), 8vw + 2rem, calc(var(--hero-height) * 0.2));
+}
+
+/* the fixed header overlays the hero, so drop the padding quarto-nav.js sets inline for it Quarto's min-height for the content assumes that padding, so instead the page is at least the window height and the content takes up the space left, which keeps the footer at the bottom */
+body {
+  padding-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+#quarto-content {
+  flex: 1 0 auto;
+}
+
+/* no extra space above the hero (Quarto adds a margin, and a padding on wide screens only),
+   and none below the box either, so the page fits one screen */
+#quarto-content > main.content {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+/* the empty title block would add a line of space */
+#title-block-header {
+  display: none;
+}
+
+/* home page content box */
+
+.home-container {
+  max-width: 1200px;
+  margin-inline: auto;
+  margin-top: calc(var(--hero-height) - var(--hero-overlap));
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.home-inner {
+  background-color: #eaf2f3;
+  padding: 2.5em 4em;
+  box-shadow: var(--shadow-medium);
+  background-image: url('../images/binary.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: auto;
+}
+
+/* narrower sides on small screens, the top and bottom stay as above */
+@media only screen and (max-width: 576px) {
+  .home-inner {
+    padding-inline: 1em;
+  }
+}
+
+/* headings and text, tight so the box and the footer fit one screen below the hero */
+
+.home-inner h2 {
+  margin-top: 0;
+  margin-bottom: 0.15em;
+  padding-bottom: 0.15em;
+}
+
+.home-inner h3 {
+  margin-top: 0;
+  margin-bottom: 0.1em;
+}
+
+.home-inner h5 {
+  margin-top: 0;
+  margin-bottom: 0.6em;
+}
+
+.home-inner p {
+  margin-bottom: 0.6em;
+}
+
+/* headline, tagline and buttons */
+
+.home-inner h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.home-logo {
+  flex: none;
+  height: 1.1em;
+  width: auto;
+  margin: 0;
+}
+
+.home-inner .tagline {
+  margin-bottom: 1.25em;
+  font-size: 1.15em;
+}
+
+.home-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.home-buttons p {
+  margin: 0;
+}
+
+/* hero slideshow */
+
+/* out of the page flow, from the top of the page to --hero-height */
+.hero-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--hero-height);
+  z-index: -5;
+}
+
+.hero-gallery {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-gallery .child {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+.hero-gallery .child.active {
+  opacity: 1;
+}
+
+.hero-gallery img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+/* pale veil behind the header */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#bad4d7 5%, transparent 30%);
+  z-index: 1;
+}
+
+.image-effect img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: grayscale(100%) brightness(1.2);
+          filter: grayscale(100%) brightness(1.2);
+}
+
+/* teal overlay using pseudo-element */
+.image-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4c979e;
+  opacity: 0.35;
+  pointer-events: none; /* so it doesn't block interactions */
+}
+
+/* particles */
+#quarto-particlejs{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+  aspect-ratio: 1684/842;
+}
+

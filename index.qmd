@@ -1,0 +1,64 @@
+---
+pagetitle: "RaukR 2027 • Summer school • Data Science With R"
+subtitle: ""
+toc: false
+date: ""
+sidebar: false
+anchor-sections: false
+image: "assets/images/seo.png"
+format:
+  html:
+    css: "assets/css/home.css"
+    number-sections: false
+    title-block-banner: false
+    anchor-sections: false
+    page-layout: full
+execute:
+  freeze: false
+hero-gallery:
+  images: assets/images/hero/
+resources:
+  - assets/images/binary.svg
+filters:
+  - assets/hero-gallery.lua
+---
+
+::: {.home-container}
+::: {.home-inner}
+
+## [RaukR • Data Science With R]{.large}
+### Summer School 2027
+##### 16-26 August 2027, Visby, Gotland, Sweden
+
+The R programming language is a powerful tool for data transformation, statistical analysis, and creating publication-ready visualizations. This workshop goes beyond the basics, giving participants a comprehensive understanding of the R ecosystem. We cover best coding practices, code profiling, data wrangling, generating reports from notebooks, and developing web applications using R.
+
+::: {.hidden}
+::: {.home-buttons}
+
+[{{< fa clipboard-list >}} Apply now!](home_registration.html){.btn .btn-primary}
+
+:::
+:::
+
+![](assets/logos/logo.svg){height="1.2em" style="margin-bottom:-3px;"} &nbsp; ![](assets/logos/nbis-scilifelab.svg){height="1.1em"}
+
+---
+
+::: small
+Updated: {{< meta current_date >}} at {{< meta current_time >}}.
+:::
+
+:::
+:::
+
+{{< particles
+  id="quarto-particlejs"
+  particles.color.value="#a6cbcf"
+  particles.line_linked.color="#a6cbcf"
+  interactivity.events.onhover.enable=true
+  interactivity.events.onhover.mode=repulse
+>}}
+
+<!-- typeform signup form -->
+<div data-tf-live="01M0HR2Q3RSK5NE817BR8BWV2X"></div>
+<script src="//embed.typeform.com/next/embed.js"></script>

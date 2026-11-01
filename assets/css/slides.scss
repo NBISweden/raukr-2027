@@ -1,0 +1,612 @@
+/* slides css style */
+
+/*-- scss:defaults --*/
+
+/* colors, fonts, size ---------------------------------------------------------------------- */
+
+$primary: #4C979F;
+$primary-dark: #37757D;
+$secondary: #A6CBCF;
+$tertiary: #D1E5E6;
+$tertiary-light: #EDF5F5;
+$link-color: #2F6F77;
+$link-color-hover: darken($link-color, 10%);
+$body-color: #1c2833;
+$code-color: #496985;
+$code-block-bg: WhiteSmoke;
+$font-family-sans-serif: 'Albert Sans', 'Helvetica', sans-serif;
+$font-family-monospace: 'Fira Mono','Ubuntu Mono', 'Lucida Console', 'Courier', monospace;
+$headings-font-family: $font-family-sans-serif;
+$mermaid-font-family: 'Nunito', 'Source Sans Pro', 'Helvetica', sans-serif;
+$code-block-border-color: none;
+$code-bg: $code-block-bg; /* inline code */
+$border-radius: 0;
+$callout-border-width: 1px;
+$callout-color-note: $primary;
+$callout-color-tip: #6B9F7F;
+$callout-color-important: #B5495B;
+$callout-color-caution: #CF6A45;
+$callout-color-warning: #D4A02F;
+
+/* shadow strengths */
+$shadow-low: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+$shadow-medium: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+$shadow-high: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+/* presentation */
+$presentation-font-size-root: 27px;
+$presentation-line-height: 1.3;
+$presentation-h1-font-size: 1.802em;
+$presentation-h2-font-size: 1.602em;
+$presentation-h3-font-size: 1.424em;
+$presentation-h4-font-size: 1.266em;
+$presentation-h5-font-size: 1.125em;
+$presentation-h6-font-size: 1em;
+
+/*-- scss:rules --*/
+
+.quarto-light {
+  background-color: #f5f9f9;
+  background-image: radial-gradient(#A6CBCF 0.65px, #f5f9f9 0.65px);
+  background-size: 13px 13px;
+}
+
+/* font */
+/* perfect fourth scale */
+.largest { font-size: 2.370em; }
+.larger { font-size: 1.778em; }
+.large { font-size: 1.333em; }
+.small { font-size: 0.75em; }
+.smaller { font-size: 0.563em; }
+.smallest { font-size: 0.422em; }
+
+.reveal .largest pre { font-size: 4.148rem !important; }
+.reveal .larger pre { font-size: 3.111rem !important; }
+.reveal .large pre { font-size: 2.333rem !important; }
+.reveal .small pre { font-size: 1.313rem !important; }
+.reveal .smaller pre { font-size: 0.984rem !important; }
+.reveal .smallest pre { font-size: 0.738rem !important; }
+
+.reveal code {
+  font-size: 0.80em !important;
+}
+
+.reveal pre {
+  font-size: 1.75rem !important;
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+}
+
+.reveal .code-with-filename .code-with-filename-file {
+  border-radius: $border-radius;
+}
+
+.reveal .code-with-filename-file pre {
+  background-color: transparent;
+  font-size: 80% !important;
+}
+
+.reveal pre,
+.reveal code {
+  border-radius: $border-radius;
+  border: 0 !important;
+}
+
+.reveal code {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.reveal div.sourceCode {
+  border: 0 !important;
+  background-color: unset;
+  border-radius: $border-radius;
+  margin-bottom: 0.6em !important;
+}
+
+.reveal pre code {
+  background-color: $code-block-bg !important;
+  border-radius: $border-radius;
+}
+
+.reveal .slide-number {
+  font-family: $font-family-sans-serif;
+}
+
+.reveal blockquote,
+.reveal .blockquote {
+  display: block;
+  position: relative;
+  width: unset;
+  margin: var(--r-block-margin) auto;
+  padding: 0.5rem 1.25rem;
+  border-left: 0.25rem solid $primary;
+  border-radius: $border-radius;
+  background: $tertiary-light;
+  box-shadow: none;
+  color: $body-color;
+  font-size: inherit;
+  font-style: normal;
+}
+
+/* text alignment */
+
+.reveal .left {
+  display: block;
+  text-align: left;
+}
+
+.reveal .center {
+  display: block;
+  text-align: center;
+}
+
+.reveal .right {
+  display: block;
+  text-align: right;
+}
+
+/* vertical alignment */
+
+.reveal .slides section:has(.v-top, .v-center, .v-bottom) {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.reveal .slides section:has(.v-top, .v-center, .v-bottom) > .columns {
+  display: flex !important;
+  flex: 1;
+  align-items: stretch;
+}
+
+.reveal .slides section:has(.v-top, .v-center, .v-bottom) > .columns > .column {
+  display: flex;
+  flex-direction: column;
+}
+
+.reveal .v-top,
+.reveal .v-center,
+.reveal .v-bottom {
+  display: grid;
+  flex: 1;
+}
+
+.reveal .v-center {
+  align-content: center;
+}
+
+.reveal .v-top {
+  align-content: start;
+}
+
+.reveal .v-bottom {
+  align-content: end;
+}
+
+/* lists */
+
+.reveal .slide ul,
+.reveal .slide ol {
+  line-height: 1.2;
+}
+
+.reveal .slide ul li,
+.reveal .slide ol li {
+  margin-top: 0.05em !important;
+  margin-bottom: 0.05em !important;
+}
+
+/* slide alignment */
+
+.reveal .slides section[data-vertical-align-top]{
+	top: 0 !important;
+}
+
+/* buttons */
+
+.reveal .btn,
+.reveal .btn.btn-primary {
+  display: inline-block;
+  padding: var(--bs-btn-padding-y, 0.2em) var(--bs-btn-padding-x, 0.6em);
+  border: 1px solid $primary-dark;
+  border-radius: var(--bs-btn-border-radius, #{$border-radius});
+  color: whitesmoke;
+  background-color: $primary-dark;
+  font-size: var(--bs-btn-font-size, inherit);
+  line-height: 1.2;
+  text-decoration: none;
+  vertical-align: baseline;
+  box-shadow: $shadow-medium;
+  transition: box-shadow 0.15s ease, color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.reveal .btn:hover,
+.reveal .btn.btn-primary:hover {
+  border-color: darken($primary-dark, 5%);
+  color: whitesmoke;
+  background-color: darken($primary-dark, 5%);
+  box-shadow: $shadow-low;
+}
+
+.reveal .btn:active,
+.reveal .btn.active,
+.reveal .btn.btn-primary:active,
+.reveal .btn.btn-primary.active {
+  border-color: darken($primary-dark, 10%);
+  color: whitesmoke;
+  background-color: darken($primary-dark, 10%);
+}
+
+.reveal .btn.btn-secondary {
+  border-color: $secondary;
+  color: $body-color;
+  background-color: $secondary;
+}
+
+.reveal .btn.btn-secondary:hover {
+  border-color: darken($secondary, 5%);
+  color: $body-color;
+  background-color: darken($secondary, 5%);
+}
+
+.reveal .btn.btn-secondary:active,
+.reveal .btn.btn-secondary.active {
+  border-color: darken($secondary, 10%);
+  color: $body-color;
+  background-color: darken($secondary, 10%);
+}
+
+.reveal .btn.btn-tertiary {
+  border-color: $tertiary;
+  color: $body-color;
+  background-color: $tertiary;
+}
+
+.reveal .btn.btn-tertiary:hover {
+  border-color: darken($tertiary, 5%);
+  color: $body-color;
+  background-color: darken($tertiary, 5%);
+}
+
+.reveal .btn.btn-tertiary:active,
+.reveal .btn.btn-tertiary.active {
+  border-color: darken($tertiary, 10%);
+  color: $body-color;
+  background-color: darken($tertiary, 10%);
+}
+
+.reveal .btn:disabled,
+.reveal .btn.disabled {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.reveal .btn a,
+.reveal .btn a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* badge */
+
+.reveal .badge,
+.reveal .badge.badge-primary {
+  font-size: 0.8em;
+  background-color: $primary-dark;
+  color: whitesmoke;
+  padding: 0.05em 0.3em;
+  border-radius: $border-radius;
+  vertical-align: baseline;
+}
+
+.reveal .badge.badge-secondary {
+  background-color: $secondary;
+  color: $body-color;
+}
+
+.reveal .badge.badge-tertiary {
+  background-color: $tertiary;
+  color: $body-color;
+}
+
+.reveal .badge a,
+.reveal .badge a:hover {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.reveal .badge.badge-secondary a,
+.reveal .badge.badge-secondary a:hover,
+.reveal .badge.badge-tertiary a,
+.reveal .badge.badge-tertiary a:hover {
+  color: $body-color;
+}
+
+/* callout */
+
+.reveal .callout {
+  border-radius: $border-radius !important;
+}
+
+.reveal .callout.callout-style-simple .callout-title,
+.reveal .callout.callout-style-default .callout-title {
+  font-size: 1.6rem !important;
+}
+
+.reveal .callout.callout-style-simple .callout-content,
+.reveal .callout.callout-style-default .callout-content {
+  font-size: 1.4rem !important;
+}
+
+.reveal div.callout.callout-style-simple div.callout-title p,
+.reveal div.callout.callout-style-default div.callout-title p {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.reveal div.callout.callout-style-simple .callout-icon::before, 
+.reveal div.callout.callout-style-default .callout-icon::before {
+  height: 1.4rem;
+  width: 1.5rem;
+  background-size: 1.4rem 1.4rem;
+}
+
+.reveal .callout.callout-titled .callout-icon::before {
+  margin-top: 0.55rem;
+}
+
+$callout-colors: (
+  "note": $callout-color-note,
+  "tip": $callout-color-tip,
+  "important": $callout-color-important,
+  "caution": $callout-color-caution,
+  "warning": $callout-color-warning
+);
+
+$callout-icons: (
+  "note": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="currentColor" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>',
+  "tip": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="12" fill="currentColor" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>',
+  "warning": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="currentColor" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>',
+  "caution": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="currentColor" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>',
+  "important": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="currentColor" viewBox="0 0 512 512"><path fill-rule="evenodd" d="M64 0h384a64 64 0 0 1 64 64v384a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V64A64 64 0 0 1 64 0zM256 112a32 32 0 0 1 32 32v128a32 32 0 0 1-64 0V144a32 32 0 0 1 32-32zM256 336a40 40 0 1 1 0 80a40 40 0 1 1 0-80z"/></svg>'
+);
+
+$callout-icon-color: str-replace("#{$body-color}", "#", "%23");
+
+@each $name, $icon in $callout-icons {
+  $color: map-get($callout-colors, $name);
+
+  .reveal div.callout.callout-#{$name}.callout-style-default .callout-title {
+    background-color: mix($color, #fff, 20%);
+  }
+
+  .reveal div.callout-#{$name} .callout-icon::before {
+    background-image: #{"url('data:image/svg+xml," + str-replace($icon, 'fill="currentColor"', 'style="fill: #{$callout-icon-color}"') + "')"} !important;
+  }
+}
+
+.callout.callout-titled .callout-body > .callout-content > :last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.reveal .callout-caution .callout-icon-container {
+  padding-top: 0 !important;
+}
+
+/* the callout type shows in the header tint, not in a colored left border */
+.reveal div.callout.callout-style-simple,
+.reveal div.callout.callout-style-default {
+  border: 1px solid #dee2e6;
+}
+
+/* tables */
+
+.reveal table {
+  font-size: 0.8em !important;
+  margin: 0;
+}
+
+.reveal table th,
+.reveal table td {
+  vertical-align: middle;
+}
+
+/* datatable components */
+
+.reveal .dataTables_wrapper .dataTables_length, 
+.reveal .dataTables_wrapper .dataTables_filter,
+.reveal .dataTables_wrapper .dataTables_info,
+.reveal .dataTables_wrapper .dataTables_processing,
+.reveal .dataTables_wrapper .dataTables_paginate {
+  font-size: .8em;
+}
+
+/* panel tabset */
+
+/* the line under the tabs is drawn inside the tab bar, so the tab underline sits exactly on it
+   and the panel starts right below, with no negative margins to line up */
+.reveal .panel-tabset [role="tablist"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin: 0;
+  border-bottom: 0;
+  box-shadow: inset 0 -1px 0 rgba($primary, 0.35);
+}
+
+/* slide list items have vertical margins, which would lift the tabs off the line */
+.reveal .panel-tabset [role="tablist"] li {
+  margin: 0 !important;
+}
+
+.reveal .panel-tabset [role="tab"] {
+  display: block;
+  margin-bottom: 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: $border-radius;
+  color: $link-color;
+  background-color: $tertiary-light;
+}
+
+.reveal .panel-tabset [role="tab"]:hover:not([aria-selected="true"]) {
+  border-bottom-color: $secondary;
+}
+
+.reveal .panel-tabset [role="tab"][aria-selected="true"] {
+  color: $body-color;
+  background-color: $tertiary;
+  border: 0;
+  border-bottom: 2px solid $primary;
+  border-radius: $border-radius;
+}
+
+.reveal .panel-tabset .tab-content {
+  margin: 0;
+  padding: 0.5em 1em 0.1em;
+  background-color: #fff;
+  border: 1px solid rgba($primary, 0.35);
+  border-top: $border-radius;
+}
+
+.reveal .panel-tabset .panel-tabset-tabby {
+  margin-bottom: 0;
+}
+
+/* accordion */
+
+.reveal .quarto-accordion {
+  $primary-hex: str-slice("#{$primary}", 2);
+  --bs-accordion-btn-color: #{$body-color};
+  --bs-accordion-btn-bg: white;
+  --bs-accordion-active-bg: #{$tertiary};
+  --bs-accordion-active-color: #{mix(black, $primary, 60%)};
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23#{$primary-hex}'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-border-color: #{rgba($primary, 0.35)};
+  --bs-accordion-border-radius: #{$border-radius};
+  --bs-accordion-inner-border-radius: #{$border-radius};
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem #{rgba($primary, 0.25)};
+}
+
+.reveal .quarto-accordion .accordion-button,
+.reveal .quarto-accordion .accordion-header-content {
+  font-family: inherit;
+}
+
+/* title slide */
+
+#title-slide .title {
+  font-size: 2.2em;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+#title-slide .subtitle {
+  font-size: $presentation-h3-font-size;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0.35em 0 0;
+}
+
+/* short accent rule between the title block and the author, institute and date lines */
+#title-slide .title-content :is(.title, .subtitle) + :is(.author, .institute, .date) {
+  margin-top: 1.4em;
+}
+
+#title-slide .title-content :is(.title, .subtitle) + :is(.author, .institute, .date)::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 0.2rem;
+  margin-bottom: 0.8em;
+  background-color: $primary;
+}
+
+#title-slide .quarto-title-authors {
+  font-size: $presentation-h3-font-size;
+  display: block;
+  margin: 0;
+  padding-left: 0;
+}
+
+#title-slide .quarto-title-author {
+  padding-left: 0;
+}
+
+#title-slide .institute, #title-slide .author {
+  font-size: $presentation-h4-font-size;
+  margin: 0;
+}
+
+#title-slide .date {
+  font-size: $presentation-h5-font-size;
+  margin: 0.3em 0 0;
+  color: lighten($body-color, 20%);
+}
+
+.reveal .slide-background-content {
+  background-position: right;
+}
+
+#title-slide .title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#title-slide .title-content {
+  min-width: 55%;
+  max-width: 85%;
+  background-color: #eaf2f3;
+  padding: 2.2em 3.5em 2.2em 3em;
+  border-left: 0.45rem solid $primary;
+  box-shadow: $shadow-high;
+  /* background-image: url('assets/images/binary.svg'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: left;
+}
+
+/* teal overlay using pseudo-element */
+.backgrounds > .slide-background:first-child .slide-background-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4c979e;
+  opacity: 0.35;
+}
+
+/* citation */
+
+.reveal .citation,
+.reveal .citation a:hover {
+  font-size: 0.8em;
+  color: lightgray;
+}
+
+.reveal .citation a {
+  font-size: 0.8em;
+  color: gray;
+}
+
+.references {
+  font-size: 0.7rem;
+}
+
+/* shinylive */
+
+.reveal .shinylive-wrapper {
+  margin: 0;
+}
+

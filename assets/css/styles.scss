@@ -1,0 +1,604 @@
+/* website css style */
+
+/*-- scss:defaults --*/
+
+/* colors, fonts, size ---------------------------------------------------------------------- */
+
+$primary: #4C979F;
+$primary-dark: #37757D;
+$secondary: #A6CBCF;
+$tertiary: #D1E5E6;
+$tertiary-light: #EDF5F5;
+$link-color: #2F6F77;
+$body-color: #1c2833;
+$code-color: #496985;
+$code-block-bg: WhiteSmoke;
+$font-family-sans-serif: 'Albert Sans', 'Helvetica', sans-serif;
+$font-family-monospace: 'Fira Mono','Ubuntu Mono', 'Lucida Console', 'Courier', monospace;
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: 400;
+$mermaid-font-family: 'Albert Sans', 'Helvetica', sans-serif;
+$font-size-root: 18px;
+$code-font-size: 0.85em;
+/* major second scale */
+$h1-font-size: 1.802rem;
+$h2-font-size: 1.602rem;
+$h3-font-size: 1.424rem;
+$h4-font-size: 1.266rem;
+$h5-font-size: 1.125rem;
+$h6-font-size: 1rem;
+$code-block-border-color: none;
+$code-bg: $code-block-bg; /* inline code */
+$border-radius: 0;
+$callout-color-note: $primary;
+$callout-color-tip: #6B9F7F;
+$callout-color-important: #B5495B;
+$callout-color-caution: #CF6A45;
+$callout-color-warning: #D4A02F;
+
+/* shadow strengths */
+$shadow-low: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+$shadow-medium: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+$shadow-high: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+$shadow-higher: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+$shadow-highest: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+/* site */
+$navbar-bg: $tertiary;
+$footer-bg: transparent;
+$footer-fg: DimGray;
+
+/*-- scss:rules --*/
+
+/* shadow tokens for plain css files */
+:root {
+  --shadow-medium: #{$shadow-medium};
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $headings-font-family;
+}
+
+/* perfect fourth scale */
+.largest { font-size: 2.370em;}
+.larger { font-size: 1.778em;}
+.large { font-size: 1.333em;}
+.small { font-size: 0.75em;}
+.smaller { font-size: 0.563em;}
+.smallest { font-size: 0.422em;}
+
+/* site ---------------------------------------------------------------------- */
+
+body {
+  background-color: #f5f9f9;
+  background-image: radial-gradient($secondary 0.65px, #fafcfc 0.65px);
+  background-size: 13px 13px;
+}
+
+/* navbar  and footer */
+
+.navbar-brand {
+  padding-top: 0;
+}
+
+.navbar-title {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.navbar-nav {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+}
+
+.nav-footer {
+  background-color: $footer-bg;
+  color: $footer-fg;
+}
+
+.nav-footer p {
+  margin-bottom: 0;
+}
+
+/* listing */
+
+.quarto-listing .card {
+  border-radius: 0;
+}
+
+.quarto-listing img {
+  border-radius: 0;
+}
+
+/* table */
+
+table th,
+table td {
+  vertical-align: middle;
+}
+
+table, .Reactable {
+  font-size: 0.85em;
+}
+
+/* buttons */
+
+.btn-xs {
+  --bs-btn-padding-y: .125rem;
+  --bs-btn-padding-x: .25rem;
+  --bs-btn-font-size: .75rem;
+  --bs-btn-border-radius: .15rem;
+}
+
+.btn.code-tools-button {
+  @extend .btn-primary;
+}
+
+.btn-primary,
+.btn:not(.btn-secondary, .btn-tertiary, .btn-success, .btn-danger, .btn-warning, .btn-info, .btn-light, .btn-dark, .btn-link, [class*="btn-outline-"]) {
+  --bs-btn-color: whitesmoke;
+  --bs-btn-bg: #{$primary-dark};
+  --bs-btn-border-color: #{$primary-dark};
+  --bs-btn-hover-color: whitesmoke;
+  --bs-btn-hover-bg: #{darken($primary-dark, 5%)};
+  --bs-btn-hover-border-color: #{darken($primary-dark, 5%)};
+  --bs-btn-active-color: whitesmoke;
+  --bs-btn-active-bg: #{darken($primary-dark, 10%)};
+  --bs-btn-active-border-color: #{darken($primary-dark, 10%)};
+  --bs-btn-disabled-color: whitesmoke;
+  --bs-btn-disabled-bg: #{$primary-dark};
+  --bs-btn-disabled-border-color: #{$primary-dark};
+  border-radius: $border-radius;
+}
+
+.btn-secondary {
+  --bs-btn-color: #{$body-color};
+  --bs-btn-bg: #{$secondary};
+  --bs-btn-border-color: #{$secondary};
+  --bs-btn-hover-color: #{$body-color};
+  --bs-btn-hover-bg: #{darken($secondary, 5%)};
+  --bs-btn-hover-border-color: #{darken($secondary, 5%)};
+  --bs-btn-active-color: #{$body-color};
+  --bs-btn-active-bg: #{darken($secondary, 10%)};
+  --bs-btn-active-border-color: #{darken($secondary, 10%)};
+  --bs-btn-disabled-color: #{$body-color};
+  --bs-btn-disabled-bg: #{$secondary};
+  --bs-btn-disabled-border-color: #{$secondary};
+}
+
+.btn-tertiary {
+  --bs-btn-color: #{$body-color};
+  --bs-btn-bg: #{$tertiary};
+  --bs-btn-border-color: #{$tertiary};
+  --bs-btn-hover-color: #{$body-color};
+  --bs-btn-hover-bg: #{darken($tertiary, 5%)};
+  --bs-btn-hover-border-color: #{darken($tertiary, 5%)};
+  --bs-btn-active-color: #{$body-color};
+  --bs-btn-active-bg: #{darken($tertiary, 10%)};
+  --bs-btn-active-border-color: #{darken($tertiary, 10%)};
+  --bs-btn-disabled-color: #{$body-color};
+  --bs-btn-disabled-bg: #{$tertiary};
+  --bs-btn-disabled-border-color: #{$tertiary};
+}
+
+.btn a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.btn-secondary a, .btn-secondary a:hover,
+.btn-tertiary a, .btn-tertiary a:hover {
+  color: $body-color;
+}
+
+/* badges */
+
+.badge,
+.badge.badge-primary {
+  background-color: $primary-dark;
+  color: whitesmoke;
+  font-weight: normal;
+  border-radius: $border-radius;
+}
+
+.badge.badge-secondary {
+  background-color: $secondary;
+  color: $body-color;
+}
+
+.badge.badge-tertiary {
+  background-color: $tertiary;
+  color: $body-color;
+}
+
+.badge a,
+.badge a:hover {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.badge.badge-secondary a,
+.badge.badge-secondary a:hover,
+.badge.badge-tertiary a,
+.badge.badge-tertiary a:hover {
+  color: $body-color;
+}
+
+/* observablehq */
+
+.observablehq .btn {
+  @extend .btn-sm;
+  border-radius: $border-radius;
+}
+
+.observablehq select {
+  @extend .form-select;
+  border-radius: $border-radius;
+}
+
+.observablehq input:not([type]),
+.observablehq input[type="text"],
+.observablehq input[type="email"],
+.observablehq input[type="password"],
+.observablehq input[type="search"],
+.observablehq input[type="tel"],
+.observablehq input[type="url"],
+.observablehq input[type="number"],
+.observablehq input[type="file"],
+.observablehq input[type="date"],
+.observablehq input[type="datetime-local"],
+.observablehq input[type="month"],
+.observablehq input[type="time"],
+.observablehq input[type="week"],
+.observablehq textarea {
+  @extend .form-control;
+  border-radius: $border-radius;
+}
+
+.observablehq input[type="button"],
+.observablehq input[type="submit"],
+.observablehq input[type="reset"] {
+  @extend .btn;
+  border-radius: $border-radius;
+}
+
+.observablehq input[type="checkbox"],
+.observablehq input[type="radio"] {
+  @extend .form-check-input;
+  border-radius: $border-radius;
+}
+
+.observablehq input[type="range"] {
+  @extend .form-range;
+  border-radius: $border-radius;
+}
+
+.observablehq input[type="color"] {
+  @extend .form-control-color;
+  border-radius: $border-radius;
+}
+
+/* alert */
+
+.alert {
+  border-radius: $border-radius;
+}
+
+/* code */
+
+pre {
+  line-height: 1.4;
+  background-color: $code-block-bg;
+  border-radius: $border-radius;
+}
+
+pre:not(.sourceCode), pre:not([class]) {
+  padding: 0.4em;
+}
+
+div.code-with-filename .code-with-filename-file {
+  border-radius: $border-radius;
+}
+
+div.code-with-filename-file pre {
+  padding: 0;
+  background-color: transparent;
+}
+
+code {
+  color: $code-color;
+  border-radius: $border-radius;
+}
+
+div.sourceCode {
+  border-radius: $border-radius;
+}
+
+.cell-output-stdout code {
+  word-break: break-word !important;
+  white-space: pre-wrap !important;
+}
+
+/* tab content */
+
+.tab-content {
+  background-color: $body-bg;
+}
+
+/* panel tabset: underlined tabs, tertiary active tab, lightly outlined panel */
+
+.panel-tabset > .nav-tabs {
+  --bs-nav-tabs-border-color: #{rgba($primary, 0.35)};
+  --bs-nav-tabs-border-radius: #{$border-radius};
+  --bs-nav-tabs-link-hover-border-color: transparent transparent #{$secondary};
+  --bs-nav-tabs-link-active-color: #{$body-color};
+  --bs-nav-tabs-link-active-bg: #{$tertiary};
+  --bs-nav-tabs-link-active-border-color: transparent transparent #{$primary};
+}
+
+.panel-tabset > .nav-tabs .nav-link {
+  border-bottom-width: 2px;
+}
+
+.panel-tabset > .nav-tabs .nav-link:not(.active) {
+  background-color: $tertiary-light;
+}
+
+.panel-tabset > .tab-content {
+  padding: 1rem 1.25rem 0.25rem;
+  border: 1px solid rgba($primary, 0.35);
+  border-top: 0;
+}
+
+/* call-out */
+
+.callout {
+  border: 1px solid $border-color !important;
+  border-radius: $border-radius !important;
+  background-color: $body-bg;
+}
+
+$callout-colors: (
+  "note": $callout-color-note,
+  "tip": $callout-color-tip,
+  "important": $callout-color-important,
+  "caution": $callout-color-caution,
+  "warning": $callout-color-warning
+);
+
+$callout-icons: (
+  "note": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="currentColor" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>',
+  "tip": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="12" fill="currentColor" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>',
+  "warning": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="currentColor" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>',
+  "caution": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="currentColor" viewBox="0 0 512 512"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>',
+  "important": '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="currentColor" viewBox="0 0 512 512"><path fill-rule="evenodd" d="M64 0h384a64 64 0 0 1 64 64v384a64 64 0 0 1-64 64H64a64 64 0 0 1-64-64V64A64 64 0 0 1 64 0zM256 112a32 32 0 0 1 32 32v128a32 32 0 0 1-64 0V144a32 32 0 0 1 32-32zM256 336a40 40 0 1 1 0 80a40 40 0 1 1 0-80z"/></svg>'
+);
+
+$callout-icon-color: str-replace("#{$body-color}", "#", "%23");
+
+@each $name, $icon in $callout-icons {
+  $color: map-get($callout-colors, $name);
+
+  div.callout.callout-#{$name}.callout-style-default .callout-header {
+    background-color: mix($color, #fff, 20%);
+  }
+
+  div.callout-#{$name} .callout-icon::before {
+    background-image: #{"url('data:image/svg+xml," + str-replace($icon, 'fill="currentColor"', 'style="fill: #{$callout-icon-color}"') + "')"} !important;
+  }
+}
+
+.callout-caution .callout-icon-container {
+  padding-top: 0 !important;
+}
+
+/* shinylive */
+
+.shinylive-wrapper {
+  position: relative;
+  margin: 2em 0 !important;
+}
+
+.shinylive-wrapper::before {
+  content: "\e05d";
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size:  1rem;
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  padding: 2px;
+  margin: 4px;
+}
+
+/* profile gallery */
+
+.profile-parent {
+  display: -ms-grid;
+  display: grid;
+  gap: 1em;
+}
+
+.profile-guest {
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+}
+
+.profile-about {
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+}
+
+.profile-child {
+  text-align: center;
+}
+
+.profile-child img {
+  height: 250px;
+  width: 250px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.profile-about img {
+  height: 150px;
+  width: 150px;
+}
+
+.profile-effect {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.profile-effect img {
+  -webkit-filter: grayscale(100%) brightness(1.2);
+          filter: grayscale(100%) brightness(1.2);
+          display: block;
+}
+
+.profile-effect p {
+  margin: 0;
+  padding: 0;
+}
+
+/* teal overlay using pseudo-element */
+.profile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4c979e;
+  opacity: 0.35;
+  transition: opacity 0.5s ease;
+}
+
+/* disable overlay and filter on hover */
+.profile-effect:hover  .profile-overlay{
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.profile-effect:hover img {
+  -webkit-filter: none;
+          filter: none;
+  transition: -webkit-filter 0.5s ease;
+  transition: filter 0.5s ease;
+  transition: filter 0.5s ease, -webkit-filter 0.5s ease;
+}
+
+/* push-down hover: the shadow flattens, as if the element is pressed into the page */
+
+.btn,
+.quarto-listing .card,
+.profile-effect,
+.raukr-gallery-child img,
+img.raukr-gallery-lead,
+.toastui-nav .toastui-nav-btn {
+  box-shadow: $shadow-medium;
+  transition: box-shadow 0.15s ease, color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover,
+.quarto-listing .card:hover,
+.profile-effect:hover,
+.raukr-gallery-child img:hover,
+img.raukr-gallery-lead:hover,
+.toastui-nav .toastui-nav-btn:hover {
+  box-shadow: $shadow-low;
+}
+
+/* schedule toolbar buttons, same look as .btn */
+
+.toastui-nav .toastui-nav-btn {
+  padding: 0.375rem 0.75rem;
+  color: $body-color;
+  background-color: $tertiary;
+  border: 1px solid $tertiary;
+  border-radius: $border-radius;
+}
+
+.toastui-nav .toastui-nav-btn:hover {
+  background-color: darken($tertiary, 5%);
+  border-color: darken($tertiary, 5%);
+}
+
+.toastui-nav .toastui-nav-btn.active {
+  color: whitesmoke;
+  background-color: $primary-dark;
+  border-color: $primary-dark;
+}
+
+.toastui-nav .toastui-nav-btn.active:hover {
+  background-color: darken($primary-dark, 5%);
+  border-color: darken($primary-dark, 5%);
+}
+
+/* accordion */
+
+.accordion {
+  --bs-accordion-border-radius: #{$border-radius};
+  --bs-accordion-inner-border-radius: #{$border-radius};
+}
+
+/* blockquote */
+
+blockquote {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1.25rem;
+  color: $body-color;
+  background-color: mix($tertiary, $body-bg, 40%);
+  border-left: 4px solid $primary;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* image gallery */
+
+.raukr-gallery-parent {
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+}
+
+.raukr-gallery-child {
+  text-align: center;
+}
+
+.raukr-gallery-child img {
+  height: 150px;
+  width: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.raukr-gallery-child p {
+  margin-bottom: 0;
+}
+
+/* announcement badge, square corners regardless of cascade order */
+
+#quarto-announcement .badge {
+  border-radius: 0;
+}
+
+/* typeform signup form */
+.tf-v1-sidetab .tf-v1-sidetab-button-text {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+}
+
+/* side tab button: square corners and the site shadow, like .btn.
+   Typeform adds its own stylesheet later with a single class selector, so the extra
+   .tf-v1-sidetab here is what makes these win. */
+.tf-v1-sidetab .tf-v1-sidetab-button {
+  border-radius: 0;
+  box-shadow: $shadow-medium;
+  transition: box-shadow 0.15s ease;
+}
+
+.tf-v1-sidetab .tf-v1-sidetab-button:hover {
+  box-shadow: $shadow-low;
+}

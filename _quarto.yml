@@ -1,0 +1,137 @@
+project:
+  type: website
+  output-dir: docs
+  render: 
+    - "*.qmd"
+    - "*.md"
+    - "!README.md"
+    - "!CONTRIBUTORS.md"
+    - "!home_contents.qmd"
+    - "!home_precourse.qmd"
+    - "!home_schedule.qmd"
+    - "!home_registration.qmd"
+
+website:
+  open-graph: true
+  site-url: "https://nbisweden.github.io/raukr-2027/"
+  image: "assets/images/seo.png"
+  description: "An intensive workshop covering the R ecosystem including best coding practices, code profiling, data wrangling, quarto notebooks, shiny apps and more."
+  favicon: "assets/favicon.svg"
+  navbar:
+    logo: "assets/logos/logo.png"
+    logo-alt: "logo"
+    right:
+      - text: "Home"
+        href: "index.qmd"
+      - text: "Program"
+        href: "home_program.qmd"
+      # - text: "Registration"
+      #   href: "home_registration.qmd"
+      - text: "Gallery"
+        href: "home_gallery.qmd"
+      - text: "FAQ"
+        href: "home_faq.qmd"
+      - text: "About"
+        href: "home_about.qmd"
+      - icon: github
+        href: https://github.com/NBISweden/raukr-2027
+  page-footer:
+    border: false
+    left: "{{< meta current_year >}} [NBIS](https://nbis.se) • [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)"
+    right: "Published with [Quarto](https://quarto.org/) v{{< meta quarto_version >}}"
+  announcement:
+    icon: info-circle
+    dismissable: true
+    content: "If you are interested in participating in RaukR 2027, sign up to express interest! You will be notified when registration opens. Go to [[{{< fa clipboard-list >}} Form]{.badge .btn-primary}](https://nbis.typeform.com/to/dHx6xuWn)"
+    type: primary
+    position: above-navbar
+
+format:
+  html:
+    quarto-required: ">=1.8.25"
+    include-in-header: "assets/include_head.html"
+    theme: "assets/css/styles.scss"
+    smooth-scroll: true
+    toc: true
+    toc-depth: 4
+    toc-location: right
+    number-sections: true
+    number-depth: 4
+    code-fold: false
+    code-tools: false
+    code-copy: true
+    code-overflow: wrap
+    df-print: kable
+    fig-align: left
+    title-block-banner: "assets/images/binary.svg"
+    subtitle: "RaukR 2027 • Data Science With R"
+    callout-icon: true
+    date: last-modified
+    date-format: "DD-MMM-YYYY"
+    image: "assets/images/featured.png"
+    lightbox: auto
+  revealjs:
+    quarto-required: ">=1.8.25"
+    include-in-header: "assets/include_head.html"
+    theme: ["default", "assets/css/slides.scss"]
+    df-print: kable
+    width: 1280
+    height: 720
+    transition: "fade"
+    transition-speed: "fast"
+    smaller: false
+    incremental: false
+    scrollable: false
+    slide-level: 2
+    slide-number: true
+    progress: true
+    date: last-modified
+    date-format: "DD-MMM-YYYY"
+    fig-align: left
+    chalkboard: true
+    callout-icon: true
+    image: "assets/images/featured.png"
+    title-slide-attributes:
+      data-background-image: "../../assets/images/cover.webp"
+      data-background-size: "cover"
+      data-background-opacity: "1"
+    title-content-background: "../../assets/images/binary.svg"
+    resources:
+      - "assets/images/binary.svg"
+    subtitle: "RaukR 2027 • Data Science With R"
+    header-logo-left: /assets/logos/logo.svg
+    header-logo-left-height: 25px
+    header-logo-left-url: ../../home_contents.html
+    header-logo-right: /assets/logos/nbis-scilifelab.svg
+    header-logo-right-height: 25px
+    header-logo-right-url: ../../home_contents.html
+    template-partials:
+      - "assets/title-slide.html"
+    pointer:
+      color: "#4C979F"
+      pointerSize: 12
+      trail: true
+      trailDuration: 250
+
+execute:
+  eval: true
+  echo: true
+  warning: false
+  message: false
+  freeze: true
+
+metadata-files:
+  - _metadata.yml
+
+knitr:
+  opts_chunk:
+    results: hold
+
+filters:
+  - assets/custom.lua
+  - collapse-output
+  - revealjs-header
+
+revealjs-plugins:
+  - pointer
+

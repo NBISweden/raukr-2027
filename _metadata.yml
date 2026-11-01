@@ -1,0 +1,94 @@
+# metadata used site-wide
+
+# map markers information
+# markdown is supported in tooltip and popup, use <br> for new lines
+# leaflet map is enabled through quarto extension https://github.com/royfrancis/quarto-leaflet which supports fontawesome icons
+# use fontawesome v6 icons: https://fontawesome.com/v6/search
+leaflet:
+  zoom: 15
+  visby:
+    markers:
+      - tooltip: Workshop Venue
+        icon: "fa-solid fa-briefcase"
+        icon-color: "#CF6A45"
+        lat: 57.6394007
+        lon: 18.28861666
+        popup: "Cramérgatan 3<br> 621 57 Visby<br> [Workshop Venue](http://www.campusgotland.uu.se/)"
+      - tooltip: Visby Börs
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.63954575
+        lon: 18.2921124
+        popup: "Strandgatan 10<br> 621 56 Visby<br> 290m (4 min walk)<br> [Visby Börs](https://visbybors.se/)"
+      - tooltip: Donners Hotell
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.63881544
+        lon: 18.29153176
+        popup: "Donnersgatan 6<br> 621 57 Visby<br> 290m (4 min walk)<br> [Donners Hotell](https://donnershotell.se/)"
+      - tooltip: BW Strand Hotel
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.64182229
+        lon: 18.29249248
+        popup: "Strandgatan 34<br> 621 56 Visby<br> 8 min walk, 2 min bike<br> [BW Strand Hotel](http://www.strandhotel.se/)"
+      - tooltip: Clarion Hotel Visby
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.63864893
+        lon: 18.29090583
+        popup: "Strandgatan 6<br> 621 57 Visby<br> 260m (3 min walk)<br> [Clarion Hotel Visby](https://www.strawberryhotels.com/hotels/sweden/visby/clarion-hotel-wisby/)"
+      - tooltip: Hotel St. Clemens
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.64314967
+        lon: 18.29592767
+        popup: "Smedjegatan 3<br> 621 55 Visby<br> 11 min walk, 4 min bike<br> [Hotel St. Clemens](http://www.clemenshotell.se/)"
+      - tooltip: Scandic Visby
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.63207053
+        lon: 18.28036867
+        popup: "Färjeleden 3<br> 621 58 Visby<br> 950m (13 min walk, 3 min bike)<br> [Scandic Visby](https://www.scandichotels.com/en/hotels/scandic-visby)"
+      - tooltip: Hotell Slottsbacken
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.63648206
+        lon: 18.28945777
+        popup: "Visborgsgatan 1<br> 621 57 Visby<br> 450m (6 min walk)<br> [Hotell Slottsbacken](http://hotellslottsbacken.se/)"
+      - tooltip: Visby Logi & Vandrarhem
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.63869078
+        lon: 18.29515413
+        popup: "Hästgatan 14<br> 621 56 Visby<br> 450m (6 min walk)<br> [Visby Logi & Vandrarhem](http://www.visbylogi.se/)"
+      - tooltip: Visby Strandby
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.65540108
+        lon: 18.30790587
+        popup: "Snäckgärdsvägen 32<br> 621 55 Visby<br> 2.3km (31 min walk, 7 min bike)<br> [Visby Strandby](http://www.visbystrandby.se/)"
+      - tooltip: First Hotel Kokoloko
+        icon: "fa-solid fa-bed"
+        icon-color: "#37757D"
+        lat: 57.62587035
+        lon: 18.28205831
+        popup: "Söderväg 56 A<br> 621 58 Visby<br> 1.7km (25 min walk, 8 min bike)<br> [First Hotel Kokoloko](https://www.firsthotels.se/hotell/sverige/gotland/first-hotel-kokoloko/)"
+      - tooltip: Ferry terminal
+        icon: "fa-solid fa-ship"
+        icon-color: "#2B3A45"
+        lat: 57.63423589
+        lon: 18.28124599
+        popup: "Färjeleden 14<br> 621 58 Visby<br> [Ferry terminal](http://www.destinationgotland.se/)"
+      - tooltip: Airport
+        icon: "fa-solid fa-plane"
+        icon-color: "#2B3A45"
+        lat: 57.66079269
+        lon: 18.33859496
+        popup: "621 41 Visby<br> [Airport](https://www.swedavia.com/visby/)"
+      - tooltip: Kapitelhusgården
+        icon: "fa-solid fa-cutlery"
+        icon-color: "#4F8062"
+        lat: 57.64178562
+        lon: 18.29606423
+        popup: "S:t Drottensgatan 8<br> 621 56 Visby<br> [Kapitelhusgården](http://www.kapitelhusgarden.se/)"
